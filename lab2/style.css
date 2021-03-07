@@ -132,11 +132,7 @@ body {
     line-height: 30px;
     text-align: center;
     margin-top: 37px;
-    width: 311px;
-}
-
-#startText > p, .features > div > p {
-    width: 411px;
+    width: 581px;
 }
 
 .text > p > .textBrMobile {
@@ -619,6 +615,11 @@ form[name="form"] > input[type="submit"]{
         line-height: 30px;
         text-align: center;
         margin-top: 37px;
+        width: 311px;
+    }
+
+    #startText > p, .features > div > p{
+        width: 411px;
     }
 
     .textBrMobile {
@@ -843,9 +844,7 @@ form[name="form"] > input[type="submit"]{
         line-height: 27px;
     }
 
-    #startText > p{
-        padding: 0 5% !important;
-    }
+   
 
     .testCard {
         margin: 20px;
@@ -868,6 +867,7 @@ form[name="form"] > input[type="submit"]{
     }
 
     #startText > p, .features > div > p {
-        width: 311px;
+        width: 260px;
+        padding: 0;
     }
 }
