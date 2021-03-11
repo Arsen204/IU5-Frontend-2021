@@ -8,7 +8,12 @@
  */
 
 function multiplyArray(arr, n) {
-    // code here
+    for(i = 0; i < arr.length; i++){
+        if(parseInt(arr[i])){
+        	arr[i] *= n;
+        }
+    }
+    return arr;
 }
 
 module.exports = multiplyArray;

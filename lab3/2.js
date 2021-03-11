@@ -7,8 +7,23 @@
  * Примеры:
  * '4 и -6, 2, 1, может 9, 63, -134 и 566]' -> {min: -134, max: 566}
  */
-function getMinMax(str) {
-    // code here
+
+ function getMinMax(str) {
+    strSplit = str.replace(/[,\/#!$%\^&\*;:{}=\_`~()]/g,"").split(' ');
+    for(i = 0; i < strSplit.length; i++){
+        if(number = parseFloat(strSplit[i], 10)){
+            if (i === 0){
+                var maxNum = number;
+                var minNum = number;
+            }
+            if(number > maxNum) {
+                maxNum = number;
+            }else if (number < minNum){
+                minNum = number;
+            }
+        }
+    }
+    return {min: minNum, max: maxNum};
 }
 
 module.exports = getMinMax;
