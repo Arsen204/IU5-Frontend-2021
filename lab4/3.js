@@ -8,7 +8,25 @@
  */
 
 function rle(str) {
-    //code here
+	if (str === ''){
+    	return '';
+   }
+   str = str.split('');
+   let result = "";
+   let currentSym = str[0];
+   let count = 0;
+
+   str.forEach((element, index) => {
+      if (element === currentSym){
+         count++;
+      } else {
+         result += currentSym + (count > 1 ? count : '');
+         count = 1;
+         currentSym = element;
+      }
+   });
+    
+   return result += currentSym + (count > 1 ? count : '');
 }
 
 module.exports = rle;

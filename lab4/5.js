@@ -10,8 +10,11 @@
  */
 
 function checkBrackets(str) {
-    //code here
-
+    let arr = [];
+    let br_list = '[]<>()';
+    return [...str].every((el) => (br_list.indexOf(el) % 2 === 1
+      ? arr.pop() === br_list.charAt(br_list.indexOf(el) - 1)
+      : arr.push(el))) && arr.length === 0;
 }
 
 module.exports = checkBrackets;
