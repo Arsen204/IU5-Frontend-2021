@@ -12,8 +12,12 @@
  * console.log(curry(add)(1)(2, 3)); //6
  * console.log(curry(add)(1, 2, 3)); //6
  */
-function curry(f) {
-    //code here
+const curry = (f) => (...args) => {
+    if(f.length > args.length){
+        const func = f.bind(this, ...args);
+        return curry(func);
+    }
+    return f(...args);
 }
 
 module.exports = curry;
