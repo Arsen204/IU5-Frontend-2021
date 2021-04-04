@@ -1,15 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Lab6</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+  <body>
+    <div class="task">
+      <h2 class="taskTitle">Task 1</h2>
+      <div class="taskImplementation" style="height: 500px">
+        <div id="randomColorBox"></div>
+        <script>
+          const colorBox = document.getElementById("randomColorBox");
+          colorBox.addEventListener("click", (e) => {
+            color = "#" + Math.random().toString(16).substr(-6);
+            e.target.style.background = color;
+          });
+        </script>
+      </div>
+    </div>
 
-<body>
+    <div class="task">
+      <h2 class="taskTitle">Task 2</h2>
+      <div class="taskImplementation" style="height: 200px">
+        <div id="timer">0</div>
+        <script>
+          const timer = document.getElementById("timer");
+          timer.addEventListener("mouseover", (e) => {
+            myTimer = setInterval(() => e.target.innerHTML++, 1000);
+          });
+          timer.addEventListener("mouseleave", (el) => {
+            clearInterval(myTimer);
+          });
+        </script>
+      </div>
+    </div>
 
-</body>
+    <div class="task">
+      <h2 class="taskTitle">Task 3</h2>
+      <div class="taskImplementation" style="height: 200px">
+        <div class="container">
+          <span class="choose">Choose Country</span>
+          <div class="dropdown">
+            <div class="select">
+              <span>Select Gender</span>
+            </div>
+            <ul class="dropdown-menu">
+              <li id="russia">Russia</li>
+              <li id="usa">USA</li>
+              <li id="uk">UK</li>
+              <li id="france">France</li>
+              <li id="china">China</li>
+              <li id="latvia">Latvia</li>
+              <li id="armenia">Armenia</li>
+            </ul>
+          </div>
+        </div>
+        <script>
+          const select = document.getElementsByClassName("select")[0];
+          const menu = document.getElementsByClassName("dropdown-menu")[0];
+          document.addEventListener("click", (e) => {
+            const target = e.target.getAttribute("class");
+            if (target === "select" || select.contains(e.target)) {
+              menu.classList.toggle("active");
+            } else {
+              if (target === "dropdown-menu" || menu.contains(e.target)) {
+                selectSpan = document.querySelector(".select > span");
+                selectSpan.innerHTML = "";
+                selectSpan.append(e.target.innerText);
+              }
+              if (menu.classList.contains("active")) {
+                menu.classList.toggle("active");
+              }
+            }
+          });
+        </script>
+      </div>
+    </div>
 
+    <div class="task">
+      <h2 class="taskTitle">Task 4</h2>
+      <div class="taskImplementation" style="height: 800px">
+        <div id="box-container">
+          <div id="ball-box">
+            <div id="ball"></div>
+          </div>
+        </div>
+        <script>
+          const box = document.getElementById("ball-box");
+          const ball = document.getElementById("ball");
+
+          //ball mousemove event
+          ballMove = function (e) {
+            if (e.target === box) {
+              let X = e.pageX;
+              let Y = e.pageY;
+              move = function () {
+                ball.style.left = X + "px";
+                ball.style.top = Y + "px";
+              };
+              move();
+            }
+          };
+
+          //box click event
+          boxClick = function (e) {
+            box.classList.toggle("active");
+
+            if (box.classList.contains("active")) {
+              box.addEventListener("mousemove", ballMove);
+            } else {
+              box.removeEventListener("mousemove", ballMove);
+            }
+          };
+
+          box.addEventListener("click", boxClick);
+        </script>
+      </div>
+    </div>
+
+    <div class="task">
+      <h2 class="taskTitle">Task 5</h2>
+      <div class="taskImplementation" style="min-height: 300px">
+        <button class="series-btn"><span>Список серий</span></button>
+        <div class="series-container"></div>
+        <script>
+          const listBox = document.getElementsByClassName(
+            "series-container"
+          )[0];
+          const button = document.getElementsByClassName("series-btn")[0];
+          button.addEventListener("click", (e) => {
+            listBox.innerHTML = "";
+            let response = fetch("https://breakingbadapi.com/api/episodes")
+              .then((data) => data.json())
+              .then((data) => {
+                table = document.createElement("table");
+
+                thead = document.createElement("thead");
+                tr = document.createElement("tr");
+                th = document.createElement("th");
+                th.append("episode_id");
+                tr.append(th);
+                th = document.createElement("th");
+                th.append("title");
+                tr.append(th);
+                th = document.createElement("th");
+                th.append("season");
+                tr.append(th);
+                th = document.createElement("th");
+                th.append("episode");
+                tr.append(th);
+                th = document.createElement("th");
+                th.append("air_date");
+                tr.append(th);
+                th = document.createElement("th");
+                th.append("characters");
+                tr.append(th);
+                thead.append(tr);
+                table.append(thead);
+
+                tbody = document.createElement("tbody");
+                data.forEach((el) => {
+                  tr = document.createElement("tr");
+                  td = document.createElement("td");
+                  td.append(el["episode_id"]);
+                  tr.append(td);
+                  td = document.createElement("td");
+                  td.append(el["title"]);
+                  tr.append(td);
+                  td = document.createElement("td");
+                  td.append(el["season"]);
+                  tr.append(td);
+                  td = document.createElement("td");
+                  td.append(el["episode"]);
+                  tr.append(td);
+                  td = document.createElement("td");
+                  td.append(el["air_date"]);
+                  tr.append(td);
+                  td = document.createElement("td");
+                  el["characters"].forEach((e) => {
+                    td.append(e);
+                    br = document.createElement("br");
+                    td.append(br);
+                  });
+                  tr.append(td);
+                  tbody.append(tr);
+                });
+                table.append(tbody);
+                listBox.append(table);
+              });
+          });
+        </script>
+      </div>
+    </div>
+
+    <footer>Arsen Vardumyan IU5-41B</footer>
+  </body>
 </html>
