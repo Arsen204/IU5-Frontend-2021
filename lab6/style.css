@@ -1,0 +1,222 @@
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Graphik';
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 0.2px;
+}
+
+.taskTitle{
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 58px;
+    margin: 50px 0;
+    text-align: center;
+}
+
+.taskImplementation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/*Task 1*/
+#randomColorBox{
+    height: 500px;
+    width: 500px;
+    background-color: rebeccapurple;
+}
+
+/*Task 2*/
+#timer{
+    display: flex;
+    align-items: center;
+    height: 150px;
+    width: 100px;
+    font-size: 150px;
+}
+
+/*Task 3*/
+span.choose {
+  padding: 5px 0 10px;
+  display: inherit
+}
+.container {
+  width: 500px;
+  text-align: center
+}
+
+.dropdown {
+  width: 300px;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 0 2px rgb(204, 204, 204);
+  transition: all .5s ease;
+  position: relative;
+  font-size: 14px;
+  color: #474747;
+  text-align: left
+}
+
+.dropdown .select {
+    cursor: pointer;
+    display: block;
+    padding: 10px
+}
+
+.dropdown:hover {
+    box-shadow: 0 0 4px rgb(204, 204, 204)
+}
+
+.dropdown .dropdown-menu {
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    left: 0;
+    margin-top: 1px;
+    box-shadow: 0 1px 2px rgb(204, 204, 204);
+    border-radius: 0 1px 2px 2px;
+    overflow: hidden;
+    display: none;
+    max-height: 144px;
+    overflow-y: auto;
+    z-index: 9;
+    padding: 0;
+    list-style: none
+}
+
+.dropdown .dropdown-menu.active {
+    display: block;
+}
+
+.dropdown .dropdown-menu li {
+    padding: 10px;
+    transition: all .2s ease-in-out;
+    cursor: pointer
+} 
+
+.dropdown .dropdown-menu li:hover {
+    background-color: #f2f2f2
+}
+.dropdown .dropdown-menu li:active {
+    background-color: #e2e2e2
+}
+
+/* Task 4*/
+#box-container{
+    height: 800px;
+    width: 800px;
+    background-color:bisque;
+}
+
+#ball-box{
+    height: 770px;
+    width: 770px;
+}
+
+#ball{
+    position: absolute;
+    border-radius: 50%;
+    width: 30px; height: 30px;
+    background-color: black;
+}
+
+/* Task 5*/
+button.series-btn{
+    outline: 0 !important;
+    width: 400px;
+    height: 100px;
+    position: relative;
+    margin-bottom: 25px;
+    border-radius: 32px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+    6px 6px 10px rgba(0, 0, 0, 0.2);
+    color: #474747;
+}
+
+button.series-btn:hover{
+    opacity: 0.3;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+    6px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+button.series-btn:active{
+    opacity: 1;
+    box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+    inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+    color: #474747;
+}
+
+button.series-btn > span {
+    line-height: 100px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 32px;
+    font-weight: semibold;
+}
+
+/*series table*/
+.series-container{
+    background-color: bisque;
+    margin: 40px 0;
+}
+
+table {
+	width: 800px;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+th, td {
+	padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+	color: #474747;
+    font-weight: 500;
+}
+
+th {
+	text-align: left;
+}
+
+thead > th {
+    background-color: #55608f;
+}
+
+tbody > tr:hover {
+    background-color: rgba(255,255,255,0.3);
+}
+
+tbody > td{
+    position: relative;
+}
+
+tbody > td:hover::before{
+    content: "";
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    background-color: rgba(255,255,255,0.2);
+    z-index: -1;
+}
+
+/* footer*/
+footer{
+    display: flex;
+    height: 200px;
+    background-color: #363535;
+    align-items: center;
+    justify-content: center;
+    color: #e2e2e2;
+    font-size: 20px;
+}
