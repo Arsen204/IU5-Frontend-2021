@@ -1,0 +1,265 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* main colors*/
+    --backgroundColor: #181818;
+    --lightText: #FFFFFF;
+    --white: #fff;
+
+}
+
+a{
+    text-decoration: none;
+    color: var(--lightText);
+}
+  
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+  
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: 'Graphik';
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 0.2px;
+    color: var(--lightText);
+    background-color: var(--backgroundColor);
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 130px;
+    padding: 0 30px;
+}
+
+.weather-container {
+    margin: 30px 20% 0;
+}
+
+.submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100vh - 130px);
+}
+
+/*button css*/
+a.button {
+    display:inline-block;
+    padding:0.5em 3em;
+    border:0.16em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    box-sizing: border-box;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-weight:400;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.15s;
+}
+a.button:hover {
+    color:#DDDDDD;
+    border-color:#DDDDDD;
+    cursor: pointer;
+}
+a.button:active {
+    color:#BBBBBB;
+    border-color:#BBBBBB;
+}
+@media all and (max-width:30em) {
+    a.button {
+        display:block;
+        margin:0.4em auto;
+    }
+}
+
+/*input style*/
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid var(--white);
+    outline: 0;
+    font-size: 1.3rem;
+    color: var(--white);
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+    color: transparent;
+}
+
+.form__field::placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+}
+
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+}
+
+.form__field:focus {
+    padding-bottom: 6px;
+    border-width: 3px;
+    border-image-slice: 1;
+}
+
+.form__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    font-weight:700;    
+}
+
+.form__field:required, .form__field:invalid{
+    box-shadow:none;
+}
+
+.logo-container > img {
+    margin-right: 10px;
+    height: 70px;
+    width: 70px;
+}
+
+.weather-info{
+    display: flex;
+    flex-direction: row;
+}
+
+.weather-info > span {
+    margin-right: 10px;
+}
+
+.weather-info > span > img {
+    height: 50px;
+    width: 50px;
+}
+
+ul {
+    display: inline-block;
+    list-style-type: none;
+    font-size: 15px;
+}
+
+.weather {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sys > div {
+    text-align: right;
+}
+
+.forecast > div {
+    height: 200px;
+    width: 18%;
+}
+
+.forecast {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.forecast > div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.mini {
+    display: none;
+}
+
+span#temperature{
+    font-size: 50px
+}
+
+.weather-info > span {
+    font-size: 30px
+}
+
+@media screen and (max-width:700px){
+    a.button {
+        display: block;
+        width: 100px;
+        padding: 0.5em 1em;
+    }
+
+    ul {
+        display: none;
+    }
+
+    .mini {
+        display: block;
+    }
+
+    span#temperature {
+        font-size: 40px;
+    }
+
+    .weather-info > span{
+        font-size: 25px
+    }
+
+    .weather-container {
+        margin: 30px 15% 0;
+    }
+}
+
+@media screen and (max-width:375px){
+    .submit, .weather {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    nav {
+        padding: 0 7%;
+    }
+
+    .form__group.field{
+        width: 60%;
+        margin: 30px 0 15px;
+    }
+}
