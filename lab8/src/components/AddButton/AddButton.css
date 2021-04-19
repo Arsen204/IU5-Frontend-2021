@@ -1,0 +1,26 @@
+.add-btn{
+    padding:0.8em 1.4em;
+    margin-top: 20px;
+    border-radius: 2em;
+    color: black;
+    background-color:#FFFFFF;
+    text-align:center;
+    transition: all 0.2s;
+    border: solid 2px;
+    outline: none;
+    font-size: 20px;
+}
+
+.add-btn:hover{
+    background-color:#4095c6;
+    cursor: pointer;
+}
+
+.add-btn:active{
+    outline: none;
+}
+
+.add-btn:active{
+    outline: none;
+    color: #FFFF;
+}
