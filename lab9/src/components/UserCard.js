@@ -8,7 +8,7 @@ function UserCard({userData}) {
     return (
         <div className="card col z-depth-4">
             <div className="waves-effect waves-block waves-light center-align">
-                <img className="circle card-img" src={userData.avatar_url} />
+                <img className="circle card-img" alt="user_foto" src={userData.avatar_url} />
                 <div className="card-title">{userData.login}</div>
                 <div className="card-title">{userData.updated_at}</div>
             </div>

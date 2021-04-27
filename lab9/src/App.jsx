@@ -10,10 +10,10 @@ function App() {
     <>
       <Router>
         <Switch>
-          <Route path='/lab9/build/' exact>
+          <Route path='/' exact>
             <HomePage onSearch={value => setUserName(value)}/>
           </Route>
-          <Route path='/lab9/build/' exact>
+          <Route path='/user' exact>
             <UserPage userName={userName}/>
           </Route>
           <Redirect to="/" />
