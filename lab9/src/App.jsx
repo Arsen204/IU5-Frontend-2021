@@ -13,7 +13,7 @@ function App() {
           <Route path='/lab9/build/' exact>
             <HomePage onSearch={value => setUserName(value)}/>
           </Route>
-          <Route path='/lab9/build/user' exact>
+          <Route path='/lab9/build/' exact>
             <UserPage userName={userName}/>
           </Route>
           <Redirect to="/" />
