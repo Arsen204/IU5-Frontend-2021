@@ -9,12 +9,12 @@ function UserPage({userName}) {
     useEffect(async () => {
         if (userName) {
             const data = await fetch(
-                `https://api.github.com/users/${userName}`,
-                {
-                  headers: {
-                  authorization: `token ${TOKEN}`
-                }
-                })
+                `https://api.github.com/users/${userName}`)
+                // {
+                //   headers: {
+                //   authorization: `token ${TOKEN}`
+                //     }
+                // })
                 .then(res => {
                     if (res.ok) {
                         setError(false)
